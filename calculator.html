@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+        }
+
+        button {
+            height: 40px;
+            width: 60px;
+        }
+
+        input {
+            height: 40px;
+            width: 250px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Calculator</h1>
+
+    <div style="text-align: center;">
+        <input id="result" type="text"></input>
+        <br></br>
+        <button id="ce"onclick="eraseAllNumbers()">CE</button>
+        <button id="c"onclick="c()">C</button>
+        <button onclick=" bac()">Back</button>
+        <button id="dia">/</button>
+        <br></br>
+        <button id="num7" value="7" >7</button>
+        <button id="num8" value="8" >8</button>
+        <button id="num9" value="9" >9</button>
+        <button id="epi">x</button>
+        <br></br>
+        <button id="num4" value="4" >4</button>
+        <button id="num5" value="5" >5</button>
+        <button id="num6" value="6" >6</button>
+        <button id="plin">-</button>
+        <br></br>
+        <button id="num1" value="1" >1</button>
+        <button id="num2" value="2" >2</button>
+        <button id="num3" value="3">3</button>
+        <button id="sin">+</button>
+        <br></br>
+        <button id="change">+/-</button>
+        <button id="num0" value="0" >0</button>
+        <button id="dot" value=".">,</button>
+        <button id="ison">=</button>
+    </div>
+
+
+</body>
+<script>
+    var numbers = [];
+    function getNumbers() {
+        document.getElementById("result").value += document.getElementById(this.id).value;
+    }
+
+    function eraseAllNumbers() {
+        document.getElementById("result").value = "";
+    }
+
+    function makeNumberFloat() {
+        var number = document.getElementById("result").value;
+        if (number.includes('.')) {
+            return;
+        }
+        document.getElementById("result").value += '.';
+    }
+
+
+    function changeNumberSign() {
+        document.getElementById("result").value = Number(document.getElementById("result").value) * (-1);
+    }
+
+    function apotelesma() {
+        
+        var x= document.getElementById("result").value;
+        
+        var y=eval(x);
+        document.getElementById("result").value=y; 
+
+
+
+    }
+
+    function sin(){
+
+        var sin=document.getElementById("result").value;
+        if(sin.includes("+")){
+
+            return;
+        }
+
+        document.getElementById("result").value+="+";
+        
+
+    }
+
+    function plin(){
+
+var sin=document.getElementById("result").value;
+if(sin.includes("-")){
+
+    return;
+}
+
+document.getElementById("result").value+="-";
+    }
+
+    function epi(){
+
+var sin=document.getElementById("result").value;
+if(sin.includes("*")){
+
+    return;
+}
+
+document.getElementById("result").value+="*";
+    }
+
+    function dia(){
+
+var sin=document.getElementById("result").value;
+if(sin.includes("/")){
+
+    return;
+}
+
+document.getElementById("result").value+="/";
+    }
+
+
+ function c(){
+
+
+    document.getElementById("result").value=0;
+ }
+
+function bac(){
+
+
+
+let arikigram=document.getElementById('result').value; 
+let mikos= arikigram.length-1;
+let teliko=arikigram.substring(0,mikos);
+document.getElementById('result').value=teliko;
+
+
+}
+  
+     
+    document.getElementById("num0").addEventListener("click",getNumbers);
+    document.getElementById("num1").addEventListener("click",getNumbers);
+    document.getElementById("num2").addEventListener("click",getNumbers);
+    document.getElementById("num3").addEventListener("click",getNumbers);
+    document.getElementById("num4").addEventListener("click",getNumbers);
+    document.getElementById("num5").addEventListener("click",getNumbers);
+    document.getElementById("num6").addEventListener("click",getNumbers);
+    document.getElementById("num7").addEventListener("click",getNumbers);
+    document.getElementById("num8").addEventListener("click",getNumbers);
+    document.getElementById("num9").addEventListener("click",getNumbers);
+    document.getElementById("ce").addEventListener("click",eraseAllNumbers);
+    document.getElementById("change").addEventListener("click",changeNumberSign);
+    document.getElementById("dot").addEventListener("click", makeNumberFloat); 
+    document.getElementById("sin").addEventListener("click",sin);
+    document.getElementById("plin").addEventListener("click",plin);
+    document.getElementById("epi").addEventListener("click",epi);
+    document.getElementById("dia").addEventListener("click",dia);
+    document.getElementById("ison").addEventListener("click",apotelesma);
+
+    
+</script>
+
+</html>
